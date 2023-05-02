@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* Header */
+  .input-container {
+    @apply flex h-10 rounded-lg border-solid border-[2.5px] border-blackA9;
+  }
+  .input-text-area {
+    @apply appearance-none w-full h-full overflow-hidden resize-none bg-white text-gray-700 
+    rounded-l-md px-2 border-none focus-visible:outline-none transition-all;
+  }
+  .btn-input {
+    @apply bg-white rounded-r-md w-10 h-full transition-all;
+  }
+}

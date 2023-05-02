@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Rect, Transformer } from "react-konva";
 
 export const TranscriptBox = ({
@@ -7,27 +7,55 @@ export const TranscriptBox = ({
   onSelect,
   onChange,
   transcriptId,
+  zoomScale,
+  stageRef,
 }) => {
   const shapeRef = useRef();
   const trRef = useRef();
+
+  const [borderColor, setBorderColor] = useState(shapeProps.stroke);
 
   useEffect(() => {
     if (isSelected) {
       // we need to attach transformer manually
       trRef.current.nodes([shapeRef.current]);
       trRef.current.getLayer().batchDraw();
+      setBorderColor("#8a90ff");
+    } else {
+      setBorderColor(shapeProps.stroke);
     }
-  }, [isSelected]);
+  }, [isSelected, shapeProps.stroke]);
 
   return (
     <>
       {/* Rect es el dibujo del polígono */}
       <Rect
+        onMouseEnter={() => {
+          setBorderColor("#8a90ff");
+          if (zoomScale === 1) {
+            stageRef.current.content.style.cursor = isSelected
+              ? "move"
+              : "pointer";
+          } else {
+            stageRef.current.content.style.cursor = isSelected
+              ? "move"
+              : "pointer";
+          }
+        }}
+        onMouseLeave={() => {
+          !isSelected && setBorderColor(shapeProps.stroke);
+          if (zoomScale === 1) {
+            stageRef.current.content.style.cursor = "default";
+          } else {
+            stageRef.current.content.style.cursor = "grab";
+          }
+        }}
         id={transcriptId}
         onClick={onSelect}
         onTap={onSelect}
         ref={shapeRef}
         {...shapeProps}
+        stroke={borderColor}
         draggable={isSelected}
         onDragEnd={(e) => {
           onChange({
