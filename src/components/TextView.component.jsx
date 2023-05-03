@@ -1,18 +1,19 @@
 import * as Form from "@radix-ui/react-form";
 import { UploadIcon } from "@radix-ui/react-icons";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 //Context
 import { TranscriptsContext } from "../contexts/Transcripts.context";
 export const TextView = () => {
   const {
     selectedTranscriptId,
     setSelectedTranscriptId,
+    viewFinderScale,
     transcripts,
     setTranscripts,
     cachedTranscripts,
   } = useContext(TranscriptsContext);
   const [inputValue, setInputValue] = useState("");
-
+  const inputRef = useRef(null);
   useEffect(() => {
     if (selectedTranscriptId === null) {
       setInputValue("");
@@ -21,8 +22,10 @@ export const TextView = () => {
         transcripts.find((transcript) => transcript.id === selectedTranscriptId)
           .text
       );
+      inputRef.current.focus();
     }
   }, [selectedTranscriptId, transcripts]);
+
   //Event handlers
   const commitChanges = (e) => {
     e.preventDefault();
@@ -35,6 +38,17 @@ export const TextView = () => {
           ? transcript
           : { ...transcript, x, y, width, height, text: inputValue }
       )
+    );
+    //Aca hay que guardar en local storage
+    localStorage.setItem(
+      selectedTranscriptId,
+      JSON.stringify({
+        x: x / viewFinderScale,
+        y: y / viewFinderScale,
+        width: width / viewFinderScale,
+        height: height / viewFinderScale,
+        text: inputValue,
+      })
     );
     setSelectedTranscriptId(null);
   };
@@ -61,6 +75,7 @@ export const TextView = () => {
         >
           <Form.Control asChild>
             <input
+              ref={inputRef}
               className={
                 !selectedTranscriptId
                   ? "input-text-area bg-neutral-50"

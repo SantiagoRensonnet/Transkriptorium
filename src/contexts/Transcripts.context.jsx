@@ -22,17 +22,33 @@ const parseToCanvas = (rawData) => {
   }
 
   const parsedRectangles = polygonIdMap.map((polygonId) => {
-    return {
-      x: parsedCoordinatesMap[polygonId].x,
-      y: parsedCoordinatesMap[polygonId].y,
-      width: parsedCoordinatesMap[polygonId].width,
-      height: parsedCoordinatesMap[polygonId].height,
-      fill: "transparent",
-      stroke: "red",
-      strokeWidth: 1,
-      id: linesObject[polygonId].id,
-      text: linesObject[polygonId].text,
-    };
+    const savedTranscript = localStorage.getItem(polygonId);
+    if (savedTranscript) {
+      const { x, y, width, height, text } = JSON.parse(savedTranscript);
+      return {
+        x,
+        y,
+        width,
+        height,
+        text,
+        fill: "transparent",
+        stroke: "red",
+        strokeWidth: 1,
+        id: linesObject[polygonId].id,
+      };
+    } else {
+      return {
+        x: parsedCoordinatesMap[polygonId].x,
+        y: parsedCoordinatesMap[polygonId].y,
+        width: parsedCoordinatesMap[polygonId].width,
+        height: parsedCoordinatesMap[polygonId].height,
+        text: linesObject[polygonId].text,
+        fill: "transparent",
+        stroke: "red",
+        strokeWidth: 1,
+        id: linesObject[polygonId].id,
+      };
+    }
   });
 
   return { image: { ...rawData.image }, rectangles: parsedRectangles };
