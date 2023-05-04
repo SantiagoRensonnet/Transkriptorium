@@ -7,11 +7,14 @@
   .input-container {
     @apply flex h-10 rounded-lg border-solid border-[2.5px] border-blackA9;
   }
-  .input-text-area {
+  .input-polygon-text {
     @apply appearance-none w-full h-full overflow-hidden resize-none bg-white text-gray-700 
     rounded-l-md px-2 border-none focus-visible:outline-none transition-all;
   }
   .btn-input {
     @apply bg-white rounded-r-md w-10 h-full transition-all;
+  }
+  .modal-container {
+    @apply data-[state=open]:animate-contentShow fixed  max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none;
   }
 }
