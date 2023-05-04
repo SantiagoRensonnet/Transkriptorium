@@ -6,6 +6,7 @@ import useImage from "use-image";
 //Components
 import { TranscriptBox } from "./TranscriptBox.component";
 
+//Auxiliary component that returns the background image (required by konva)
 const ArtImage = () => {
   const { imageData } = useContext(TranscriptsContext);
   const [image] = useImage("/" + imageData.name);
@@ -19,16 +20,14 @@ const ArtImage = () => {
   );
 };
 
-export const Canvas = ({
-  selectedTranscriptId,
-  setSelectedTranscriptId,
-  zoomScale,
-}) => {
+export const Canvas = ({ zoomScale, openModal }) => {
   const stageRef = useRef(null);
   const {
     transcripts,
     cachedTranscripts,
     setCachedTranscripts,
+    selectedTranscriptId,
+    setSelectedTranscriptId,
     imageData,
     viewFinderScale,
   } = useContext(TranscriptsContext);
@@ -53,8 +52,7 @@ export const Canvas = ({
     const clickedOnEmpty =
       e.target === e.target.getStage() || e.target.attrs.image;
     if (clickedOnEmpty) {
-      setSelectedTranscriptId(null);
-      setCachedTranscripts(transcripts);
+      selectedTranscriptId && openModal();
     }
   };
   const handleChange = (newAttrs) => {

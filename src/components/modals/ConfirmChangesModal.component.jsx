@@ -33,7 +33,6 @@ export const ConfirmChangesModal = ({
           : { ...transcript, x, y, width, height, text: areaText }
       )
     );
-    //Aca hay que guardar en local storage
     localStorage.setItem(
       selectedTranscriptId,
       JSON.stringify({
