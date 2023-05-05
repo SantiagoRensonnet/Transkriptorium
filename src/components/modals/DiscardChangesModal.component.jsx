@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { TranscriptsContext } from "../../contexts/Transcripts.context";
 
-export const DiscardChangesModal = ({ onClose }) => {
-  const { setSelectedTranscriptId, setCachedTranscripts, transcripts } =
-    useContext(TranscriptsContext);
+export const DiscardChangesModal = ({ onClose, instructions }) => {
+  const {
+    setSelectedTranscriptId,
+    setCachedTranscripts,
+    transcripts,
+    setIsFirstSelection,
+  } = useContext(TranscriptsContext);
   return (
     <div
       className="relative z-10"
@@ -52,7 +56,12 @@ export const DiscardChangesModal = ({ onClose }) => {
             <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <button
                 onClick={() => {
-                  setSelectedTranscriptId(null);
+                  if (instructions.onDiscard) {
+                    setSelectedTranscriptId(instructions.onDiscard);
+                  } else {
+                    setSelectedTranscriptId(null);
+                    setIsFirstSelection(true);
+                  }
                   setCachedTranscripts(transcripts);
                   onClose();
                 }}

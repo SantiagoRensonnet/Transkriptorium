@@ -14,6 +14,7 @@ export const ConfirmChangesModal = ({
     viewFinderScale,
     setTranscripts,
     cachedTranscripts,
+    setCachedTranscripts,
   } = useContext(TranscriptsContext);
 
   const textAreaRef = useRef();
@@ -135,6 +136,13 @@ export const ConfirmChangesModal = ({
               className="text-[hsl(235,43%,48%)] hover:bg-[hsl(237,91.5%,95.5%)] focus:shadow-[hsl(237,71%,83.7%)] absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
               aria-label="Close"
               onClick={() => {
+                setCachedTranscripts((prevState) =>
+                  prevState.map((transcript) =>
+                    selectedTranscriptId === transcript.id
+                      ? { ...transcript, text: areaText }
+                      : transcript
+                  )
+                );
                 setInputText(areaText);
                 setOpen(false);
               }}

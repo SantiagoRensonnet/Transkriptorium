@@ -20,7 +20,7 @@ const ArtImage = () => {
   );
 };
 
-export const Canvas = ({ zoomScale, openModal }) => {
+export const Canvas = ({ zoomScale, openDiscardChangesModal }) => {
   const stageRef = useRef(null);
   const {
     transcripts,
@@ -28,10 +28,23 @@ export const Canvas = ({ zoomScale, openModal }) => {
     setCachedTranscripts,
     selectedTranscriptId,
     setSelectedTranscriptId,
+    isFirstSelection,
+    setIsFirstSelection,
     imageData,
     viewFinderScale,
   } = useContext(TranscriptsContext);
 
+  const transcriptHasChanged = () => {
+    const cachedTranscript = cachedTranscripts.find(
+      (transcript) => transcript.id === selectedTranscriptId
+    );
+    const memoryTranscript = transcripts.find(
+      (transcript) => transcript.id === selectedTranscriptId
+    );
+    return (
+      JSON.stringify(cachedTranscript) !== JSON.stringify(memoryTranscript)
+    );
+  };
   useEffect(() => {
     if (stageRef && stageRef.current) {
       if (zoomScale === 1) {
@@ -52,7 +65,14 @@ export const Canvas = ({ zoomScale, openModal }) => {
     const clickedOnEmpty =
       e.target === e.target.getStage() || e.target.attrs.image;
     if (clickedOnEmpty) {
-      selectedTranscriptId && openModal();
+      if (selectedTranscriptId) {
+        if (transcriptHasChanged()) {
+          openDiscardChangesModal({ onDiscard: "" });
+        } else {
+          setSelectedTranscriptId(null);
+          setIsFirstSelection(true);
+        }
+      }
     }
   };
   const handleChange = (newAttrs) => {
@@ -80,8 +100,26 @@ export const Canvas = ({ zoomScale, openModal }) => {
               shapeProps={transcript}
               isSelected={transcript.id === selectedTranscriptId}
               onSelect={() => {
-                setCachedTranscripts(transcripts);
-                setSelectedTranscriptId(transcript.id);
+                if (isFirstSelection) {
+                  setCachedTranscripts(transcripts);
+                  setSelectedTranscriptId(transcript.id);
+                  setIsFirstSelection(false);
+                } else {
+                  if (transcript.id !== selectedTranscriptId) {
+                    if (transcriptHasChanged()) {
+                      openDiscardChangesModal({
+                        onDiscard: `${transcript.id}`,
+                      });
+                    } else {
+                      setCachedTranscripts(transcripts);
+                      setSelectedTranscriptId(transcript.id);
+                    }
+                  }
+                }
+
+                // openDiscardChangesModal({ onDiscard: `${transcript.id}` });
+                // setCachedTranscripts(transcripts);
+                // setSelectedTranscriptId(transcript.id);
               }}
               onChange={handleChange}
               zoomScale={zoomScale}

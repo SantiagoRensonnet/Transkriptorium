@@ -14,7 +14,9 @@ export const ViewFinder = () => {
   //Modal setup for discard changes
   /*********************************************** */
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => {
+  const [discardInstructions, setDiscardInstructions] = useState({});
+  const openModal = (command) => {
+    setDiscardInstructions(command);
     setIsModalOpen(true);
   };
   const closeModal = () => {
@@ -26,7 +28,12 @@ export const ViewFinder = () => {
   // const initScale = window.innerWidth / imageData.width;
   return (
     <>
-      {isModalOpen && <DiscardChangesModal onClose={closeModal} />}
+      {isModalOpen && (
+        <DiscardChangesModal
+          instructions={discardInstructions}
+          onClose={closeModal}
+        />
+      )}
       <FrameScroll frameDimensions={""}>
         <TransformWrapper
           // initialScale={(window.innerWidth / imageData.width) * 1}
@@ -40,7 +47,7 @@ export const ViewFinder = () => {
           wheel={{ activationKeys: ["Control"] }}
         >
           <TransformComponent>
-            <Canvas openModal={openModal} zoomScale={zoomScale} />
+            <Canvas openDiscardChangesModal={openModal} zoomScale={zoomScale} />
           </TransformComponent>
         </TransformWrapper>
       </FrameScroll>

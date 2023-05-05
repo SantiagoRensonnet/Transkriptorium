@@ -5,8 +5,18 @@ import { useContext, useEffect, useState, useRef } from "react";
 import { TranscriptsContext } from "../contexts/Transcripts.context";
 //Modals
 import { ConfirmChangesModal } from "./modals/ConfirmChangesModal.component";
+
+//utils
+function debounce(cb, delay = 1000) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => cb(...args), delay);
+  };
+}
 export const TextInput = () => {
-  const { selectedTranscriptId, transcripts } = useContext(TranscriptsContext);
+  const { selectedTranscriptId, transcripts, setCachedTranscripts } =
+    useContext(TranscriptsContext);
   const [inputText, setInputText] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const inputRef = useRef(null);
@@ -22,14 +32,24 @@ export const TextInput = () => {
     }
   }, [selectedTranscriptId, transcripts]);
 
+  const updateCacheText = debounce((text) => {
+    setCachedTranscripts((prevState) =>
+      prevState.map((transcript) =>
+        selectedTranscriptId === transcript.id
+          ? { ...transcript, text }
+          : transcript
+      )
+    );
+  }, 500);
   //Event handlers
-
   const handleButtonClick = (e) => {
     e.preventDefault();
     setOpenModal(true);
   };
   const handleInputChange = (e) => {
     setInputText(e.target.value);
+    //hacer debounce y meterlo en array
+    updateCacheText(e.target.value);
   };
   return (
     <>

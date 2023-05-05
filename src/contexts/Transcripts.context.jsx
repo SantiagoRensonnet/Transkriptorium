@@ -82,6 +82,7 @@ export const TranscriptsProvider = ({ children }) => {
   const [cachedTranscripts, setCachedTranscripts] = useState([]);
   const [imageData, setImageData] = useState({});
   const [selectedTranscriptId, setSelectedTranscriptId] = useState(null);
+  const [isFirstSelection, setIsFirstSelection] = useState(true);
 
   useEffect(() => {
     const getTranscriptsFromAPI = async () => {
@@ -124,6 +125,8 @@ export const TranscriptsProvider = ({ children }) => {
         viewFinderScale,
         selectedTranscriptId,
         setSelectedTranscriptId,
+        isFirstSelection,
+        setIsFirstSelection,
       }}
     >
       {children}
