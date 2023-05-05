@@ -1,13 +1,18 @@
-//Components
-import { TextInput } from "./components/TextInput.component";
-import { ViewFinder } from "./components/canvas/ViewFinder.component";
-
+import { Routes, Route } from "react-router-dom";
+//Routes Components
+import { Layout } from "./components/layout/Layout.component";
+import { Home } from "./routes/Home.component";
+import { Error404 } from "./routes/Error404.component";
+import { Editor } from "./routes/Editor.component";
 function App() {
   return (
-    <main className="min-h-[100vh] bg-neutral-900 flex flex-col justify-center items-center">
-      <ViewFinder />
-      <TextInput />
-    </main>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+      </Route>
+      <Route path="/editor" element={<Editor />} />
+      <Route path="*" element={<Error404 />} />
+    </Routes>
   );
 }
 

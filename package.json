@@ -16,10 +16,12 @@
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-popover": "1.0.5",
     "@radix-ui/react-scroll-area": "^1.0.3",
+    "@radix-ui/react-tooltip": "^1.0.5",
     "konva": "^9.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-konva": "^18.2.7",
+    "react-router-dom": "^6.11.1",
     "react-zoom-pan-pinch": "^3.0.7",
     "use-image": "^1.1.0"
   },

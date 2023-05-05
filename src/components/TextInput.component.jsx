@@ -1,6 +1,9 @@
 import * as Form from "@radix-ui/react-form";
 import { UploadIcon } from "@radix-ui/react-icons";
 import { useContext, useEffect, useState, useRef } from "react";
+/*Components*/
+//Layout
+import { CustomTooltip } from "./containers/CustomTooltip.component";
 //Context
 import { TranscriptsContext } from "../contexts/Transcripts.context";
 //Modals
@@ -74,8 +77,8 @@ export const TextInput = () => {
           <div
             className={
               selectedTranscriptId
-                ? "input-container border-[#8a90ff] shadow-[0_0_0.3rem_#b3b6ff] transition-all duration-200"
-                : "input-container border-neutral-300 opacity-90"
+                ? "text-input--container border-[#8a90ff] shadow-[0_0_0.3rem_#b3b6ff] transition-all duration-200"
+                : "text-input--container border-neutral-300 opacity-90"
             }
           >
             <Form.Control asChild>
@@ -83,8 +86,8 @@ export const TextInput = () => {
                 ref={inputRef}
                 className={
                   !selectedTranscriptId
-                    ? "input-polygon-text bg-neutral-50"
-                    : "input-polygon-text transition-all duration-200"
+                    ? "text-input--input bg-neutral-50"
+                    : "text-input--input transition-all duration-200"
                 }
                 autoComplete="off"
                 required
@@ -99,11 +102,13 @@ export const TextInput = () => {
                 disabled={!selectedTranscriptId}
                 className={
                   !selectedTranscriptId
-                    ? "btn-input bg-neutral-50"
-                    : "btn-input transition-all duration-200"
+                    ? "text-input--btn bg-neutral-50"
+                    : "text-input--btn transition-all duration-200"
                 }
               >
-                <UploadIcon />
+                <CustomTooltip title={"submit changes"}>
+                  <UploadIcon />
+                </CustomTooltip>
               </button>
             </Form.Submit>
           </div>

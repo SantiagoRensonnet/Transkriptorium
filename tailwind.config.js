@@ -9,7 +9,15 @@ export default {
         ...blackA,
         ...mauve,
         ...violet,
+        violet4: "hsl(237,91.5%,95.5%)",
+        violet7: "hsl(237,71%,83.7%)",
+        violet8: "hsl(237,68.6%,76.3%)",
+        violet11: "hsl(235,43%,48%)",
         ...green,
+        green4: "hsl(90,58.7%,91%)",
+        green5: "hsl(91,43.5%,86%)",
+        green7: "hsl(96,38.5%,69%)",
+        green11: "hsl(102,67%,28.5%)",
       },
       keyframes: {
         overlayShow: {

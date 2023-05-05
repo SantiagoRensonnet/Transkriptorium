@@ -96,14 +96,14 @@ export const ConfirmChangesModal = ({
           </div>
           <fieldset className="flex flex-col justify-center">
             <label
-              className="text-[hsl(235,43%,48%)] w-full text-[15px] mb-1"
+              className="text-violet11 w-full text-[15px] mb-1"
               htmlFor="polygon-text"
             >
               Texto del Polígono seleccionado
             </label>
             <textarea
               ref={textAreaRef}
-              className="p-2 text-[hsl(235,43%,48%)] shadow-text-[hsl(237,71%,83.7%)] focus:shadow-[hsl(237,68.6%,76.3%)] inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
+              className="p-2 text-violet11 shadow-violet7 focus:shadow-violet8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
               id="polygon-text"
               cols="30"
               rows="10"
@@ -121,7 +121,7 @@ export const ConfirmChangesModal = ({
             ></div>
             <Dialog.Close asChild>
               <button
-                className="bg-[hsl(90,58.7%,91%)] text-[hsl(102,67%,28.5%)] hover:bg-[hsl(91,43.5%,86%)] focus:shadow-[hsl(96,38.5%,69%)] inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
+                className="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
                 onClick={() => {
                   confirmChanges();
                   setOpen(false);
@@ -133,7 +133,7 @@ export const ConfirmChangesModal = ({
           </div>
           <Dialog.Close asChild>
             <button
-              className="text-[hsl(235,43%,48%)] hover:bg-[hsl(237,91.5%,95.5%)] focus:shadow-[hsl(237,71%,83.7%)] absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
+              className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
               aria-label="Close"
               onClick={() => {
                 setCachedTranscripts((prevState) =>
