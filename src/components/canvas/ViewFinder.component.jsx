@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { TranscriptsContext } from "../../contexts/Transcripts.context";
 //Components
 import { Canvas } from "./Canvas.component";
-import { FrameScroll } from "../FrameScroll.component";
+import { FrameScroll } from "../containers/FrameScroll.component";
 import { DiscardChangesModal } from "../modals/DiscardChangesModal.component";
 
 export const ViewFinder = () => {
@@ -19,9 +19,7 @@ export const ViewFinder = () => {
     setDiscardInstructions(command);
     setIsModalOpen(true);
   };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+
   /********************************************** */
   //For mobile
   // const { imageData } = useContext(TranscriptsContext);
@@ -31,7 +29,8 @@ export const ViewFinder = () => {
       {isModalOpen && (
         <DiscardChangesModal
           instructions={discardInstructions}
-          onClose={closeModal}
+          open={isModalOpen}
+          setOpen={setIsModalOpen}
         />
       )}
       <FrameScroll frameDimensions={""}>

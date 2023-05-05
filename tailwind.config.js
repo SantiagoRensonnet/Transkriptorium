@@ -1,10 +1,13 @@
-import { blackA, mauve, violet, green } from "@radix-ui/colors";
+import { blackA, mauve, violet, green, red } from "@radix-ui/colors";
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        Oswald: "'Oswald', sans-serif",
+      },
       colors: {
         ...blackA,
         ...mauve,
@@ -18,6 +21,7 @@ export default {
         green5: "hsl(91,43.5%,86%)",
         green7: "hsl(96,38.5%,69%)",
         green11: "hsl(102,67%,28.5%)",
+        ...red,
       },
       keyframes: {
         overlayShow: {
