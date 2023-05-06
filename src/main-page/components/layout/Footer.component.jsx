@@ -1,5 +1,5 @@
-import LinkedInLogo from "../../assets/icons/LinkedIn-logo.svg";
-import GithubLogo from "../../assets/icons/Github-logo.svg";
+import LinkedInLogo from "../../../assets/icons/LinkedIn-logo.svg";
+import GithubLogo from "../../../assets/icons/Github-logo.svg";
 export const Footer = () => {
   return (
     <footer className="footer">

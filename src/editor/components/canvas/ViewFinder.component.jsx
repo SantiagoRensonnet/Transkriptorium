@@ -4,8 +4,8 @@ import { useContext, useState } from "react";
 import { TranscriptsContext } from "../../contexts/Transcripts.context";
 //Components
 import { Canvas } from "./Canvas.component";
-import { FrameScroll } from "../containers/FrameScroll.component";
-import { DiscardChangesModal } from "../modals/DiscardChangesModal.component";
+import { FrameScroll } from "../../components/containers/FrameScroll.component";
+import { DiscardChangesModal } from "../../components/modals/DiscardChangesModal.component";
 
 export const ViewFinder = () => {
   const { selectedTranscriptId } = useContext(TranscriptsContext);

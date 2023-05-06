@@ -1,4 +1,4 @@
-import { DraftCard } from "../components/containers/DraftCard";
+import { DraftCard } from "../main-page/components/containers/DraftCard";
 export const Home = () => {
   const draftsData = [
     { name: "Albatross", fileId: "Albatross_vol009of055-050-0" },

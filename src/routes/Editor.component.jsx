@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 //Context
-import { TranscriptsProvider } from "../contexts/Transcripts.context";
+import { TranscriptsProvider } from "../editor/contexts/Transcripts.context";
 //Components
-import { FileError } from "../components/FileError.component";
-import { TextInput } from "../components/TextInput.component";
-import { ViewFinder } from "../components/canvas/ViewFinder.component";
+import { FileError } from "../editor/components/FileError.component";
+import { TextInput } from "../editor/components/TextInput.component";
+import { ViewFinder } from "../editor/components/canvas/ViewFinder.component";
 export const Editor = () => {
   const draftsArray = ["Albatross_vol009of055-050-0"];
   const { fileId } = useParams();

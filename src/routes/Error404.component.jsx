@@ -1,5 +1,5 @@
-import { Header } from "../components/layout/Header.component";
-import { Footer } from "../components/layout/Footer.component";
+import { Header } from "../main-page/components/layout/Header.component";
+import { Footer } from "../main-page/components/layout/Footer.component";
 export const Error404 = () => {
   return (
     <>

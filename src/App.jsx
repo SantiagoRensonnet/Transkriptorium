@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 //Routes Components
-import { Layout } from "./components/layout/Layout.component";
+import { Layout } from "./main-page/components/layout/Layout.component";
 import { Home } from "./routes/Home.component";
 import { Error404 } from "./routes/Error404.component";
 import { Editor } from "./routes/Editor.component";

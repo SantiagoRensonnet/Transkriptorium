@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import logo from "../../assets/icons/logo.png";
+import logo from "../../../assets/icons/logo.png";
 export const Header = () => {
   const fileId = "Albatross_vol009of055-050-0";
   return (
