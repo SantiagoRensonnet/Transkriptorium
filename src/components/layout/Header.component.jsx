@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import logo from "../../assets/icons/logo.png";
 export const Header = () => {
+  const fileId = "Albatross_vol009of055-050-0";
   return (
     <header className="header">
       <nav className="navigation" aria-label="Global">
@@ -15,7 +16,7 @@ export const Header = () => {
         </Link>
 
         <Link
-          to="editor"
+          to={`editor/file/${fileId}`}
           target="_blank"
           rel="noopener noreferrer"
           className="nav-link flex items-center"

@@ -70,8 +70,14 @@
      
 
       flex flex-col justify-between items-center 
-      text-neutral-100 bg-gray-300 rounded  2xl:text-lg
+      bg-white text-gray-900 rounded border border-solid border-gray-200  2xl:text-lg
       overflow-hidden   cursor-pointer;
+  }
+  .draft-card figure {
+    @apply transition ease-in-out duration-300 brightness-100 saturate-100;
+  }
+  .draft-card:hover figure {
+    @apply brightness-[1.15] saturate-[1.2];
   }
   /********************************************************************************************************/
   /*Editor */

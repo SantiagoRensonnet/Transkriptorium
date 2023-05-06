@@ -69,7 +69,7 @@ const resizeRegions = (regions, d) =>
 //store (context)
 export const TranscriptsContext = createContext({});
 //provider (component)
-export const TranscriptsProvider = ({ children }) => {
+export const TranscriptsProvider = ({ children, fileId }) => {
   //***************************************************************************** */
   //The user must be able to change this scale factor clicking on a "scale" button
   const [viewFinderScale, setViewFinderScale] = useState(0);
@@ -86,7 +86,7 @@ export const TranscriptsProvider = ({ children }) => {
 
   useEffect(() => {
     const getTranscriptsFromAPI = async () => {
-      const res = await fetch("/Albatross_vol009of055-050-0.json");
+      const res = await fetch(`/${fileId}.json`);
       const data = await res.json();
       const CanvasData = parseToCanvas(data);
 
