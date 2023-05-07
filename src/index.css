@@ -59,7 +59,7 @@
   }
   /*Draft List*/
   .draft-list {
-    @apply w-full sm:w-8/12 md:w-10/12  2xl:w-8/12 my-auto p-4 2xl:py-4  sm:p-0 sm:grid sm:gap-4 md:grid-cols-3
+    @apply w-full sm:w-7/12 md:w-10/12 xl:w-8/12 2xl:w-7/12 my-auto p-4 2xl:py-4  sm:p-0 sm:grid sm:gap-4 md:grid-cols-3
     sm:mb-20 sm:mt-4 md:mb-0 md:mt-0;
   }
 
@@ -73,12 +73,7 @@
       bg-white text-gray-900 rounded border border-solid border-gray-200  2xl:text-lg
       overflow-hidden   cursor-pointer;
   }
-  .draft-card figure {
-    @apply transition ease-in-out duration-300 brightness-100 saturate-100;
-  }
-  .draft-card:hover figure {
-    @apply brightness-[1.15] saturate-[1.2];
-  }
+
   /********************************************************************************************************/
   /*Editor */
   /*Text input*/

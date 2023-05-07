@@ -6,8 +6,9 @@ import { FileError } from "../editor/components/FileError.component";
 import { TextInput } from "../editor/components/TextInput.component";
 import { ViewFinder } from "../editor/components/canvas/ViewFinder.component";
 export const Editor = () => {
-  const draftsArray = ["Albatross_vol009of055-050-0"];
   const { fileId } = useParams();
+  //This is a hardcoded solution to what must be a API calling to check for all previously created drafts
+  const draftsArray = ["Albatross_vol009of055-050-0"];
   const isIdValid = draftsArray.includes(fileId);
 
   return isIdValid ? (

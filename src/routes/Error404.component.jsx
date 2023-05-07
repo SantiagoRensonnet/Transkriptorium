@@ -12,7 +12,7 @@ export const Error404 = () => {
           aria-describedby="dialog-desc"
         >
           <h1
-            className="text-indigo-500 font-bold text-3xl md:text-6xl"
+            className="text-[#4DA3E8] font-bold text-3xl md:text-6xl"
             id="dialog-title"
           >
             404
