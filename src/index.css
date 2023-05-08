@@ -38,7 +38,7 @@
 @layer components {
   /*Header*/
   .header {
-    @apply sticky top-0 z-10 h-16  flex items-center px-8 md:px-16 bg-white shadow-md;
+    @apply sticky top-0 z-10 h-16  flex items-center px-8 md:px-16 bg-gray-100 shadow-md;
   }
   .navigation {
     @apply w-full flex justify-between items-center text-gray-600;
@@ -55,7 +55,7 @@
   }
   /* Main */
   .main-container {
-    @apply min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center;
+    @apply min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center bg-gray-100;
   }
   /*Draft List*/
   .draft-list {
@@ -70,7 +70,7 @@
      
 
       flex flex-col justify-between items-center 
-      bg-white text-gray-900 rounded border border-solid border-gray-200  2xl:text-lg
+      bg-gray-100 text-gray-900 rounded border border-solid border-neutral-400  2xl:text-lg
       overflow-hidden   cursor-pointer;
   }
 

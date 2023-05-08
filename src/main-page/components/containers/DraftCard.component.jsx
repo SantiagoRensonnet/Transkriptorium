@@ -17,7 +17,7 @@ export const DraftCard = ({
       role="link"
       className={
         selectedDraft === fileId
-          ? "draft-card border border-green7"
+          ? "draft-card border-[1.5px] border-green-600"
           : "draft-card"
       }
       onKeyDown={(e) => e.key === "Enter" && navigate(`editor/file/${fileId}`)}
