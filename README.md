@@ -20,12 +20,12 @@ There's only one draft because the main focus of the assignment was to build the
 ### on why I use this approach
 
 Surely you are thinking (or not) why not:
-a) use session storage or
-b) provide the user with a "restore to default" button?
+a) use session storage or b) provide the user with a "restore to default" button?
 
 The answer is simple, tit doesn't make sense when you think about the final use of the App.
-a) I want the user to have the option to retrieve the session in case of accidentally closing the tab or window.
-b) Can you imagine another button floating there in an already crowded interface? It's just bad user experience to me. Besides, how many times the user would use this hypothetical button?
+
+- I want the user to have the option to retrieve the session in case of accidentally closing the tab or window.
+- Can you imagine another button floating there in an already crowded interface? It's just bad user experience to me. Besides, how many times the user would use this hypothetical button?
 
 The solution to this problem in the real app is to just delete the whole draft and create another one. Of course this another problem, to tackle, another day.
 
