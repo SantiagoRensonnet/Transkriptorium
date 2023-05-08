@@ -7,7 +7,22 @@ There's only one draft because the main focus of the assignment was to build the
 ## Usage
 
 1. Click "Last Draft" or double click the draft Card to access the Editor
-2. To restore to initial state (discard all changes you've made) you would have to manually clear the local storage
+2. Refresh the page if you change the window size to fit to screen (this behavior could be automated in the future)
+3. To restore to initial state (discard all changes you've made) you would have to manually clear the local storage
+
+---
+
+**NOTE**
+
+The editor is not yet mobile compatible.
+
+- The editor resizes the image and polygons in every refresh of the page to fit the whole screen
+
+For small devices the image gets distorted so I opted to limit the minimum viewFinder width to 768px (medium and up devices).
+As a user:
+\*If you change the window size below 768px the viewFinder will not fit in the screen.
+
+---
 
 ### how to clear local storage
 
