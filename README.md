@@ -10,9 +10,7 @@ There's only one draft because the main focus of the assignment was to build the
 2. Refresh the page if you change the window size to fit to screen (this behavior could be automated in the future)
 3. To restore to initial state (discard all changes you've made) you would have to manually clear the local storage
 
----
-
-**NOTE**
+**Warning**
 
 The editor is not yet mobile compatible.
 
