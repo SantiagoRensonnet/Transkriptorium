@@ -112,7 +112,7 @@ export const TranscriptsProvider = ({ children, fileId }) => {
       setCachedTranscripts(resizedRectangles);
     };
     getTranscriptsFromAPI();
-  }, [viewFinderScale]);
+  }, [viewFinderScale, fileId]);
 
   return (
     <TranscriptsContext.Provider
