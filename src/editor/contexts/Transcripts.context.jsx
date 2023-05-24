@@ -75,7 +75,7 @@ export const TranscriptsProvider = ({ children, fileId }) => {
   const [viewFinderScale, setViewFinderScale] = useState(0);
   const userScaleFactor = 1;
 
-  //For know we just hardcode it
+  //For now we just hardcode it
   //***************************************************************************** */
 
   const [transcripts, setTranscripts] = useState([]);
