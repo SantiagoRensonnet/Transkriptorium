@@ -1,7 +1,7 @@
-## Transkriptorium App
+## Transkriptorium Prototype 
 
 The App simulates a simple user dashboard with a list of drafts.
-There's only one draft because the main focus of the assignment was to build the Editor page (where the ViewFinder lies).
+There's only one draft that's being consumed from a static JSON file
 
 ## Usage
 
