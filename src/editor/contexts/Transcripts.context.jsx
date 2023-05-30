@@ -24,12 +24,14 @@ const parseToCanvas = (rawData) => {
   const parsedRectangles = polygonIdMap.map((polygonId) => {
     const savedTranscript = localStorage.getItem(polygonId);
     if (savedTranscript) {
-      const { x, y, width, height, text } = JSON.parse(savedTranscript);
+      const { x, y, width, height, text, rotation } =
+        JSON.parse(savedTranscript);
       return {
         x,
         y,
         width,
         height,
+        rotation,
         text,
         fill: "transparent",
         stroke: "red",
@@ -42,6 +44,7 @@ const parseToCanvas = (rawData) => {
         y: parsedCoordinatesMap[polygonId].y,
         width: parsedCoordinatesMap[polygonId].width,
         height: parsedCoordinatesMap[polygonId].height,
+        rotation: 0,
         text: linesObject[polygonId].text,
         fill: "transparent",
         stroke: "red",

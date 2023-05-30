@@ -24,14 +24,14 @@ export const ConfirmChangesModal = ({
 
   //Event Handlers
   const confirmChanges = () => {
-    const { x, y, width, height } = cachedTranscripts.find(
+    const { x, y, width, height, rotation } = cachedTranscripts.find(
       (transcript) => transcript.id === selectedTranscriptId
     );
     setTranscripts((prevState) =>
       prevState.map((transcript) =>
         transcript.id !== selectedTranscriptId
           ? transcript
-          : { ...transcript, x, y, width, height, text: areaText }
+          : { ...transcript, x, y, width, height, rotation, text: areaText }
       )
     );
     localStorage.setItem(
@@ -41,6 +41,7 @@ export const ConfirmChangesModal = ({
         y: y / viewFinderScale,
         width: width / viewFinderScale,
         height: height / viewFinderScale,
+        rotation,
         text: areaText,
       })
     );

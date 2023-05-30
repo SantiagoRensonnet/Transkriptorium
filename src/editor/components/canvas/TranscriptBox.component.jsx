@@ -80,6 +80,7 @@ export const TranscriptBox = ({
             ...shapeProps,
             x: node.x(),
             y: node.y(),
+            rotation: node.getRotation(),
             // set minimal value
             width: Math.max(5, node.width() * scaleX),
             height: Math.max(node.height() * scaleY),
